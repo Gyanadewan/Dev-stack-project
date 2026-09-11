@@ -1,9 +1,13 @@
-import { use } from "react"
+import { use, useState } from "react"
 import TechnologiesCard from "./TechnologiesCard"
 
 
 function Technologies({techDataPromise}) {
     const  technologies = use(techDataPromise)
+      const [selectedTechnologies, setSelectedTechnologies] = useState([])
+    const handleSelectTechnology = (technology) => {
+           setSelectedTechnologies((prev) => [...prev, technology])
+            }
   return (
     <div className="container mx-auto">
          <h1 className="text-3xl font-bold">Explore the Technologies</h1>
@@ -13,7 +17,7 @@ function Technologies({techDataPromise}) {
      <div className="col-span-3">
       <div className="grid grid-cols-3 gap-3">
         {
-            technologies.map(technology => <TechnologiesCard technology={technology}></TechnologiesCard>)
+            technologies.map((technology,index) => <TechnologiesCard key={index} technology={technology}  handleSelectTechnology={ handleSelectTechnology} ></TechnologiesCard>)
         }
     </div>
   </div>

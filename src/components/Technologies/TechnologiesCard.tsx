@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FcRating } from 'react-icons/fc'
 
-function TechnologiesCard({technology}) {
+function TechnologiesCard({technology, handleSelectTechnology}) {
+    
   return (
     <div className='bg-white shadow-xl rounded-xl p-2 py-3'>
          <div className='flex justify-between py-2'>
@@ -21,7 +22,7 @@ function TechnologiesCard({technology}) {
               <p className="flex items-center gap-1"> <FcRating /> <span className='font-[400px]'>{technology.rating}</span> </p>
          </div>
            <div className='flex justify-center items-center'>  
-            <button className='bg-black text-white rounded-xl px-12 py-1' >Add to Stack</button>
+            <button onClick={()=>handleSelectTechnology(technology)} className='bg-black text-white rounded-xl px-12 py-1' >Add to Stack</button>
            </div>
     </div>
   )
