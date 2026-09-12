@@ -4,7 +4,7 @@ import type { ITechnology } from "../Types/technology";
 
 interface YourStackItemsProps {
   selectCard:ITechnology;
-  handleDeleteTechnology: (id: number) => void
+  handleDeleteTechnology: (id: string) => void
 
 }
 

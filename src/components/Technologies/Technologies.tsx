@@ -25,11 +25,16 @@ function Technologies({techDataPromise}:TechnologiesProps) {
         
            }
           
-          const handleDeleteTechnology = (id: number) => {
+          const handleDeleteTechnology = (id: string) => {
          setSelectedTechnologies((prev) =>
           prev.filter((technology) => technology.id !== id)
-             );
-};
+             )       
+             };
+
+          const handleRemoveAll= () => {
+          setSelectedTechnologies([])
+             toast.success(` All Technologies remove `);
+          }
             
   return (
     <div className="container mx-auto">
@@ -63,7 +68,7 @@ function Technologies({techDataPromise}:TechnologiesProps) {
      
      <div className="flex justify-center"> 
       
-      <button className=" border border-red-300 text-red-600 hover:bg-red-300 rounded-lg px-6 py-2 flex text-center items-center"><span><MdDelete/></span>Remove All</button>
+      <button onClick={handleRemoveAll} className=" border border-red-300 text-red-600 hover:bg-red-300 rounded-lg px-6 py-2 flex text-center items-center"><span><MdDelete/></span>Remove All</button>
       </div>
      </div>
      
