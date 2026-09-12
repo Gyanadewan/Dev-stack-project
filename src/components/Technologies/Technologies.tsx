@@ -13,11 +13,20 @@ interface TechnologiesProps {
 function Technologies({techDataPromise}:TechnologiesProps) {
     const  technologies = use(techDataPromise)
       const [selectedTechnologies, setSelectedTechnologies] = useState<ITechnology[]>([])
-
+ 
     const handleSelectTechnology = (technology:ITechnology) => {
-           setSelectedTechnologies((prev) => [...prev, technology])
-           toast.success(`${technology.name} selected successfully!`);
+           if(selectedTechnologies.find(item=> item.id === technology.id) ){
+             toast.error(`${technology.name} is already selected!`)
+           }
+           else{
+             toast.success(`${technology.name} selected successfully!`);
+             setSelectedTechnologies((prev) => [...prev, technology])
             }
+        
+           }
+          
+          
+            
   return (
     <div className="container mx-auto">
          <h1 className="text-3xl font-bold">Explore the Technologies</h1>

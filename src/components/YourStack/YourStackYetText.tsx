@@ -1,4 +1,3 @@
-import { FaCode } from "react-icons/fa"
 
 function YourStackYetText() {
   return (
