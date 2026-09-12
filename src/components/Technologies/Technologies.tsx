@@ -25,7 +25,11 @@ function Technologies({techDataPromise}:TechnologiesProps) {
         
            }
           
-          
+          const handleDeleteTechnology = (id: number) => {
+         setSelectedTechnologies((prev) =>
+          prev.filter((technology) => technology.id !== id)
+             );
+};
             
   return (
     <div className="container mx-auto">
@@ -52,7 +56,7 @@ function Technologies({techDataPromise}:TechnologiesProps) {
     ) : (
   <div>
      {
-       selectedTechnologies.map((selectCard,index )=>  <YourStackItems key={index} selectCard ={selectCard}></YourStackItems>  )
+       selectedTechnologies.map((selectCard,index )=>  <YourStackItems key={index} selectCard ={selectCard}  handleDeleteTechnology={ handleDeleteTechnology}></YourStackItems>  )
      }
   </div>
 )}

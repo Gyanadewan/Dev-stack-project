@@ -4,10 +4,12 @@ import type { ITechnology } from "../Types/technology";
 
 interface YourStackItemsProps {
   selectCard:ITechnology;
+  handleDeleteTechnology: (id: number) => void
+
 }
 
 
-function YourStackItems({selectCard}:YourStackItemsProps ) {
+function YourStackItems({selectCard,handleDeleteTechnology}:YourStackItemsProps ) {
   return (
    <div className="flex items-center gap-3 px-3 py-2 border border-gray-300 my-3 rounded-xl">
   
@@ -24,7 +26,7 @@ function YourStackItems({selectCard}:YourStackItemsProps ) {
     <h1 className="text-[14px]">{selectCard.name}</h1>
   </div>
 
-  <button className="ml-auto  hover:text-red-700">
+  <button onClick={()=>handleDeleteTechnology(selectCard.id)}  className="ml-auto  hover:text-red-700">
     <FiX size={20} />
   </button>
 
