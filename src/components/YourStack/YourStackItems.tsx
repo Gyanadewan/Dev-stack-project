@@ -1,15 +1,34 @@
+import { FiX } from "react-icons/fi";
+import type { ITechnology } from "../Types/technology";
 
 
-function YourStackItems({selectCard}) {
+interface YourStackItemsProps {
+  selectCard:ITechnology;
+}
+
+
+function YourStackItems({selectCard}:YourStackItemsProps ) {
   return (
-    <div className='flex items-center  px-3 py-2 border border-gray-300 my-3 rounded-xl'>
-        <img className='w-20 h-10' src={selectCard.icon} alt="" />
-        <div className=''>
-        <h3>{selectCard.category}</h3>
-       <h1>{selectCard.name}</h1>
-        </div>
+   <div className="flex items-center gap-3 px-3 py-2 border border-gray-300 my-3 rounded-xl">
+  
+  <img
+    className="w-10 h-8 object-contain"
+    src={selectCard.icon}
+    alt={selectCard.name}
+  />
 
-    </div>
+  <div className="">
+    <h3 className="text-[16px] font-medium">
+      {selectCard.category}
+    </h3>
+    <h1 className="text-[14px]">{selectCard.name}</h1>
+  </div>
+
+  <button className="ml-auto  hover:text-red-700">
+    <FiX size={20} />
+  </button>
+
+</div>
   )
 }
 

@@ -2,6 +2,10 @@ import { use, useState } from "react"
 import TechnologiesCard from "./TechnologiesCard"
 import type { ITechnology } from "../Types/technology"
 import YourStackItems from "../YourStack/YourStackItems"
+import { MdDelete } from "react-icons/md"
+import { toast } from "react-toastify"
+import YourStackYetText from "../YourStack/YourStackYetText"
+
 
 interface TechnologiesProps {
   techDataPromise: Promise<ITechnology[]>
@@ -9,9 +13,10 @@ interface TechnologiesProps {
 function Technologies({techDataPromise}:TechnologiesProps) {
     const  technologies = use(techDataPromise)
       const [selectedTechnologies, setSelectedTechnologies] = useState<ITechnology[]>([])
-      console.log(selectedTechnologies,"technologies")
+
     const handleSelectTechnology = (technology:ITechnology) => {
            setSelectedTechnologies((prev) => [...prev, technology])
+           toast.success(`${technology.name} selected successfully!`);
             }
   return (
     <div className="container mx-auto">
@@ -27,18 +32,29 @@ function Technologies({techDataPromise}:TechnologiesProps) {
     </div>
   </div>
   <div className="col-span-1">
+  
      <div className=" shadow-md rounded-xl p-5 ">
         <h1>Your Stack</h1>
+
+   {selectedTechnologies.length === 0 ? (
+    <div>
+          <YourStackYetText></YourStackYetText>
+  </div>
+    ) : (
+  <div>
      {
-       selectedTechnologies.map(selectCard =>  <YourStackItems selectCard ={selectCard}></YourStackItems>  )
-           
+       selectedTechnologies.map((selectCard,index )=>  <YourStackItems key={index} selectCard ={selectCard}></YourStackItems>  )
      }
+  </div>
+)}
+     
+     <div className="flex justify-center"> 
+      
+      <button className=" border border-red-300 text-red-600 hover:bg-red-300 rounded-lg px-6 py-2 flex text-center items-center"><span><MdDelete/></span>Remove All</button>
+      </div>
      </div>
      
     
-    <div className="">
-    
-    </div>
   </div>
 
    </div>
