@@ -1,15 +1,16 @@
 
 import { FcRating } from 'react-icons/fc'
 import type { ITechnology } from '../Types/technology'
+import { useState } from 'react';
 
 interface TechnologiesCardProps {
   technology : ITechnology;
   handleSelectTechnology: (technology: ITechnology)=>void
 }
-
  
 function TechnologiesCard({technology, handleSelectTechnology}: TechnologiesCardProps) {
-    
+  
+
   return (
     <div className='bg-white shadow-xl rounded-xl p-2 py-3'>
          <div className='flex justify-between py-2'>
@@ -29,7 +30,8 @@ function TechnologiesCard({technology, handleSelectTechnology}: TechnologiesCard
               <p className="flex items-center gap-1"> <FcRating /> <span className='font-[400px]'>{technology.rating}</span> </p>
          </div>
            <div className='flex justify-center items-center'>  
-            <button onClick={()=>handleSelectTechnology(technology)} className='bg-black text-white rounded-xl px-12 py-1' >Add to Stack</button>
+            <button 
+               onClick={()=>handleSelectTechnology(technology)} className='bg-black text-white rounded-xl px-12 py-1' >Add to Stack</button>
            </div>
     </div>
   )
