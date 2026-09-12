@@ -1,7 +1,6 @@
 
 import { FcRating } from 'react-icons/fc'
 import type { ITechnology } from '../Types/technology'
-import { useState } from 'react';
 
 interface TechnologiesCardProps {
   technology : ITechnology;

@@ -1,5 +1,5 @@
 
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import './App.css'
 import Hero from './components/Hero/Hero'
 import Technologies from './components/Technologies/Technologies'
@@ -14,15 +14,17 @@ import Footer from './components/Footer/Footer'
     return data
     
   } 
+   const techDataPromise = techLoadDataFetch()
 function App() {
-  const techDataPromise = techLoadDataFetch()
-
+   const [count,setCount] = useState(0)
+ 
+  
   return (
     <>
         <Navbar></Navbar>
          <Hero></Hero>
          <Suspense fallback={<div>Loading Data</div>}>
-          <Technologies techDataPromise ={techDataPromise} ></Technologies>
+          <Technologies techDataPromise ={techDataPromise} count={count} setCount={setCount}></Technologies>
          </Suspense>
          <Footer></Footer>
          <ToastContainer></ToastContainer>

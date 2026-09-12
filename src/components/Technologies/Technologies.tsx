@@ -10,7 +10,7 @@ import YourStackYetText from "../YourStack/YourStackYetText"
 interface TechnologiesProps {
   techDataPromise: Promise<ITechnology[]>
 }
-function Technologies({techDataPromise}:TechnologiesProps) {
+function Technologies({techDataPromise,count,setCount}:TechnologiesProps) {
     const  technologies = use(techDataPromise)
       const [selectedTechnologies, setSelectedTechnologies] = useState<ITechnology[]>([])
  
@@ -21,19 +21,23 @@ function Technologies({techDataPromise}:TechnologiesProps) {
            else{
              toast.success(`${technology.name} selected successfully!`);
              setSelectedTechnologies((prev) => [...prev, technology])
+             setCount(count+1)
             }
-        
+         
            }
           
-          const handleDeleteTechnology = (id: string) => {
+          const handleDeleteTechnology = (id: string, name:string) => {
          setSelectedTechnologies((prev) =>
           prev.filter((technology) => technology.id !== id)
              )       
-             };
+              toast.success(`${name} Technology removed successfully!`);
+               setCount(count-1)
+          };
 
           const handleRemoveAll= () => {
           setSelectedTechnologies([])
              toast.success(` All Technologies remove `);
+             setCount(0)
           }
             
   return (
@@ -41,7 +45,7 @@ function Technologies({techDataPromise}:TechnologiesProps) {
          <h1 className="text-3xl font-bold">Explore the Technologies</h1>
           <p className="text-gray-50000">Pick one technology per category to build your ideal stack.</p>
 
- <div className="container mx-auto grid grid-cols-4 gap-3 py-5">
+   <div className="container mx-auto grid grid-cols-4 gap-3 py-5">
      <div className="col-span-3">
       <div className="grid grid-cols-3 gap-3">
         {
@@ -53,7 +57,7 @@ function Technologies({techDataPromise}:TechnologiesProps) {
   
      <div className=" shadow-md rounded-xl p-5 ">
         <h1>Your Stack</h1>
-
+        <p><span>{count} </span>Technology Selected</p>
    {selectedTechnologies.length === 0 ? (
     <div>
           <YourStackYetText></YourStackYetText>
@@ -61,7 +65,7 @@ function Technologies({techDataPromise}:TechnologiesProps) {
     ) : (
   <div>
      {
-       selectedTechnologies.map((selectCard,index )=>  <YourStackItems key={index} selectCard ={selectCard}  handleDeleteTechnology={ handleDeleteTechnology}></YourStackItems>  )
+       selectedTechnologies.map((selectCard,index )=> <YourStackItems key={index} selectCard ={selectCard}  handleDeleteTechnology={ handleDeleteTechnology}></YourStackItems>  )
      }
   </div>
 )}

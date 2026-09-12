@@ -4,7 +4,7 @@ import type { ITechnology } from "../Types/technology";
 
 interface YourStackItemsProps {
   selectCard:ITechnology;
-  handleDeleteTechnology: (id: string) => void
+  handleDeleteTechnology: (id: string,name:string) => void
 
 }
 
@@ -26,7 +26,7 @@ function YourStackItems({selectCard,handleDeleteTechnology}:YourStackItemsProps 
     <h1 className="text-[14px]">{selectCard.name}</h1>
   </div>
 
-  <button onClick={()=>handleDeleteTechnology(selectCard.id)}  className="ml-auto  hover:text-red-700">
+  <button onClick={()=>handleDeleteTechnology(selectCard.id,selectCard.name)}  className="ml-auto  hover:text-red-700">
     <FiX size={20} />
   </button>
 
