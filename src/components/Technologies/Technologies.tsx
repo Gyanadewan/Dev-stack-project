@@ -1,6 +1,7 @@
 import { use, useState } from "react"
 import TechnologiesCard from "./TechnologiesCard"
 import type { ITechnology } from "../Types/technology"
+import YourStackItems from "../YourStack/YourStackItems"
 
 interface TechnologiesProps {
   techDataPromise: Promise<ITechnology[]>
@@ -8,6 +9,7 @@ interface TechnologiesProps {
 function Technologies({techDataPromise}:TechnologiesProps) {
     const  technologies = use(techDataPromise)
       const [selectedTechnologies, setSelectedTechnologies] = useState<ITechnology[]>([])
+      console.log(selectedTechnologies,"technologies")
     const handleSelectTechnology = (technology:ITechnology) => {
            setSelectedTechnologies((prev) => [...prev, technology])
             }
@@ -25,11 +27,15 @@ function Technologies({techDataPromise}:TechnologiesProps) {
     </div>
   </div>
   <div className="col-span-1">
-     {/* {
-       selectedTechnologies.map(selectCard =>   )
+     <div className=" shadow-md rounded-xl p-5 ">
+        <h1>Your Stack</h1>
+     {
+       selectedTechnologies.map(selectCard =>  <YourStackItems selectCard ={selectCard}></YourStackItems>  )
            
-     } */}
+     }
+     </div>
      
+    
     <div className="">
     
     </div>

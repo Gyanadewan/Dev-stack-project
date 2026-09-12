@@ -11,14 +11,14 @@ function Navbar() {
           <img
             src={NavLogo}
             alt="Logo"
-            className="w-30 h-12 object-contain"
+            className="w-40 h-12 object-contain"
           />
         </div>
 
         {/* Navigation */}
         <ul className="flex items-center gap-8 font-medium text-gray-700">
           <li>
-            <a href="#home" className="hover:text-blue-600 transition">
+            <a href="" className="hover:text-blue-600 transition">
               Home
             </a>
           </li>
