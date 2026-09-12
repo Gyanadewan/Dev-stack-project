@@ -4,8 +4,9 @@ import './App.css'
 import Hero from './components/Hero/Hero'
 import Technologies from './components/Technologies/Technologies'
 import Navbar from './Navbar/Navbar'
+import type { ITechnology } from './components/Types/technology'
 
-  const  techLoadDataFetch = async () => {
+  const  techLoadDataFetch = async ():Promise<ITechnology[]> => {
     const  res = await  fetch ("/data.json")
     const data = await res.json()
     return data

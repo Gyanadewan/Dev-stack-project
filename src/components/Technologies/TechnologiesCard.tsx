@@ -1,7 +1,14 @@
-import React, { useState } from 'react'
-import { FcRating } from 'react-icons/fc'
 
-function TechnologiesCard({technology, handleSelectTechnology}) {
+import { FcRating } from 'react-icons/fc'
+import type { ITechnology } from '../Types/technology'
+
+interface TechnologiesCardProps {
+  technology : ITechnology;
+  handleSelectTechnology: (technology: ITechnology)=>void
+}
+
+ 
+function TechnologiesCard({technology, handleSelectTechnology}: TechnologiesCardProps) {
     
   return (
     <div className='bg-white shadow-xl rounded-xl p-2 py-3'>

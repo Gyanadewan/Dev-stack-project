@@ -1,11 +1,14 @@
 import { use, useState } from "react"
 import TechnologiesCard from "./TechnologiesCard"
+import type { ITechnology } from "../Types/technology"
 
-
-function Technologies({techDataPromise}) {
+interface TechnologiesProps {
+  techDataPromise: Promise<ITechnology[]>
+}
+function Technologies({techDataPromise}:TechnologiesProps) {
     const  technologies = use(techDataPromise)
-      const [selectedTechnologies, setSelectedTechnologies] = useState([])
-    const handleSelectTechnology = (technology) => {
+      const [selectedTechnologies, setSelectedTechnologies] = useState<ITechnology[]>([])
+    const handleSelectTechnology = (technology:ITechnology) => {
            setSelectedTechnologies((prev) => [...prev, technology])
             }
   return (
@@ -17,14 +20,18 @@ function Technologies({techDataPromise}) {
      <div className="col-span-3">
       <div className="grid grid-cols-3 gap-3">
         {
-            technologies.map((technology,index) => <TechnologiesCard key={index} technology={technology}  handleSelectTechnology={ handleSelectTechnology} ></TechnologiesCard>)
+            technologies.map((technology,index) => <TechnologiesCard key={index}  technology={technology}  handleSelectTechnology={ handleSelectTechnology} ></TechnologiesCard>)
         }
     </div>
   </div>
   <div className="col-span-1">
+     {/* {
+       selectedTechnologies.map(selectCard =>   )
+           
+     } */}
+     
     <div className="">
-      <h2>Your Stack</h2>
-      <p>No technologies selected yet.</p>
+    
     </div>
   </div>
 
