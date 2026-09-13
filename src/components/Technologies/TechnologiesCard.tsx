@@ -1,6 +1,8 @@
 
 import { FcRating } from 'react-icons/fc'
 import type { ITechnology } from '../Types/Technology'
+import { useState } from 'react';
+import { FaCheck } from 'react-icons/fa';
 
 interface TechnologiesCardProps {
   technology : ITechnology;
@@ -8,10 +10,10 @@ interface TechnologiesCardProps {
 }
  
 function TechnologiesCard({technology, handleSelectTechnology}: TechnologiesCardProps) {
-  
-
+   const [isSelected,setIsSelected] = useState(false)
+     
   return (
-    <div className='bg-white shadow-xl rounded-xl  p-10 md:p-2 md:py-3'>
+    <div className={`shadow-xl rounded-xl  p-10 md:p-2 md:py-3 border border-amber-50 ${isSelected?"border border-yellow-500":"border-amber-50"}`}>
          <div className='flex justify-between py-2'>
               <img className='w-8 h-8' src={technology.icon} alt="" />
                <div className=''>
@@ -30,7 +32,15 @@ function TechnologiesCard({technology, handleSelectTechnology}: TechnologiesCard
          </div>
            <div className='flex justify-center items-center'>  
             <button 
-               onClick={()=>handleSelectTechnology(technology)} className='bg-black text-white rounded-xl px-12 py-1' >Add to Stack</button>
+               onClick={()=>
+                {
+                  handleSelectTechnology(technology);
+                   setIsSelected(true)
+                }} className={`bg-black text-white rounded-xl px-12 py-1
+                   ${isSelected?"bg-yellow-600"
+                   : "bg-black hover:bg-gray-800"}`} >
+                {isSelected?<><FaCheck className="inline mr-2"/>Added to Stack</>: "Add to Stack"}      
+               </button>
            </div>
     </div>
   )
