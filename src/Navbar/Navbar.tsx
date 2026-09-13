@@ -1,11 +1,14 @@
 
+import { CiMenuBurger } from "react-icons/ci";
 import NavLogo from "../assets/logo-text.png";
 
 function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="container mx-auto flex items-center justify-between px-5 py-4">
-
+      <div className="container mx-auto flex items-center justify-between py-4">
+        <div className="block md:hidden">
+            <CiMenuBurger  className="text-2xl"/>
+        </div>
         {/* Logo */}
         <div>
           <img
@@ -16,7 +19,7 @@ function Navbar() {
         </div>
 
         {/* Navigation */}
-        <ul className="flex items-center gap-8 font-medium text-gray-700">
+        <ul className=" items-center gap-8 font-medium text-gray-700 hidden md:flex">
           <li>
             <a href="" className="hover:text-blue-600 transition">
               Home
@@ -25,7 +28,7 @@ function Navbar() {
 
           <li>
             <a href="#technologies" className="hover:text-blue-600 transition">
-              Technologies
+              Technvologies
             </a>
           </li>
 
@@ -54,7 +57,7 @@ function Navbar() {
             Sign In
           </button>
 
-          <button className="bg-[#D91B7E] text-white px-4 py-2 rounded-lg font-medium  transition">
+          <button className="bg-gradient  text-white px-4 py-2 rounded-lg font-medium  transition">
             Sign Up
           </button>
         </div>

@@ -11,7 +11,7 @@ function TechnologiesCard({technology, handleSelectTechnology}: TechnologiesCard
   
 
   return (
-    <div className='bg-white shadow-xl rounded-xl p-2 py-3'>
+    <div className='bg-white shadow-xl rounded-xl  p-10 md:p-2 md:py-3'>
          <div className='flex justify-between py-2'>
               <img className='w-8 h-8' src={technology.icon} alt="" />
                <div className=''>

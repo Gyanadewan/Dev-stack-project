@@ -3,12 +3,12 @@ import BannerImage from "../../assets/banner-stack.png";
 
 function Hero() {
   return (
-    <section className="container mx-auto px-5 py-20">
-      <div className="flex items-center justify-between gap-12">
+    <section className="container mx-auto  ">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-2 md:gap-12">
 
         {/* Left Side - Text */}
-        <div className="w-1/2">
-          <h2 className="text-5xl font-bold leading-tight">
+        <div className=" w-full md:w-1/2  text-center md:text-left py-2 md:py-8">
+          <h2 className=" text-4xl md:text-5xl font-bold leading-tight">
             Build Your Ideal <span className="text-gradient">Development Stack</span>
           </h2>
 
@@ -19,7 +19,7 @@ function Hero() {
           </p>
 
           {/* Buttons */}
-          <div className="mt-8 flex gap-4">
+          <div className=" mt-8 flex gap-4 justify-center items-center md:justify-start">
             <button className="rounded-lg bg-gradient  px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
               Explore Technologies
             </button>
@@ -31,7 +31,7 @@ function Hero() {
         </div>
 
         {/* Right Side - Image */}
-        <div className="w-1/2 flex justify-center">
+        <div className=" w-full md:w-1/2 flex justify-center">
           <img
             src={BannerImage}
             alt="Development Stack"

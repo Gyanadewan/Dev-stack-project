@@ -1,9 +1,9 @@
 import FooterImg from "../../assets/logo-text.png"
 function Footer() {
   return (
-<footer className=" container mx-auto py-10">
+<footer className=" container mx-auto  py-5 md:py-10">
      <div className="bg-gray-50 rounded-sm p-8" >
-           <div className="grid grid-cols-5 gap-5 p-6 ">
+           <div className="grid grid-1 md:grid-cols-5 gap-5 p-6 ">
            <div className="col-span-2">
         <img className="" src={FooterImg} alt="" />
       <p className="py-3 text-gray-600">Curated tools, technologies, and resources for developers building
@@ -15,7 +15,7 @@ function Footer() {
               <li><a href="">Linkdin</a></li>
          </ul>
       </div>
-      <div className="col-span-1">
+      <div className="col-span-1 md:block hidden">
           <h2 className="font-semibold">Product</h2>
            <ul className="text-gray-600">
              <li><a href="">Home</a></li>
@@ -23,7 +23,7 @@ function Footer() {
               <li><a href="">Projects</a></li>
          </ul>
       </div>
-      <div className="col-span-1">
+      <div className="col-span-1 md:block hidden">
          <h2 className="font-semibold">Company</h2>
           <ul className="text-gray-600">
              <li><a href="">About</a></li>
@@ -31,7 +31,7 @@ function Footer() {
               <li><a href="">Careers</a></li>
          </ul>
       </div>
-      <div className="col-span-1 ">
+      <div className="col-span-1 md:block hidden">
          <h2 className="font-semibold ]">Legal</h2>
          <ul className="text-gray-600">
              <li className="py-1"><a href="">Privacy Policy</a></li>
