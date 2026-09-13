@@ -1,14 +1,11 @@
 import { FiX } from "react-icons/fi";
 import type { ITechnology } from "../Types/Technology";
 
-
-
 interface YourStackItemsProps {
   selectCard:ITechnology;
   handleDeleteTechnology: (id: string,name:string) => void
 
 }
-
 
 function YourStackItems({selectCard,handleDeleteTechnology}:YourStackItemsProps ) {
   return (
