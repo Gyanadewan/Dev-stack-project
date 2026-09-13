@@ -1,6 +1,6 @@
 import { use, useState, type Dispatch, type SetStateAction } from "react"
 import TechnologiesCard from "./TechnologiesCard"
-import type { ITechnology } from "../Types/technology"
+import type { ITechnology } from "../Types/Technology"
 import YourStackItems from "../YourStack/YourStackItems"
 import { MdDelete } from "react-icons/md"
 import { toast } from "react-toastify"
