@@ -1,5 +1,6 @@
 import { FiX } from "react-icons/fi";
-import type { ITechnology } from "../Types/technology";
+import type { ITechnology } from "../Types/Technology";
+
 
 
 interface YourStackItemsProps {
